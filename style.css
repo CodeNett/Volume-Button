@@ -1,0 +1,44 @@
+body{
+  background-color: #212121;
+}
+.container{
+  --color: #a5a5b0;
+  --size: 30px;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+}
+.container .mute{
+  position: absolute;
+  animation: kayframes-fill .5s;
+}
+.container .voice{
+  position: absolute;
+  display: none;
+  animation: kayframes-fill .5s;
+}
+.container input:checked ~ .mute{
+  display: none;
+}
+.container input:checked ~ .voice{
+  display: block;
+}
+.container input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+@keyframes kayframes-fill {
+  0%{
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  50%{
+    transform: rotate(-10deg) scale(1.2);
+  }
+}
